@@ -6,4 +6,8 @@ public class bank {
 	private String name;
 	private ArrayList<user> users;
 	private ArrayList<account> accounts;
+	
+	public String getNewUserId() {
+		return null;
+	};
 }
