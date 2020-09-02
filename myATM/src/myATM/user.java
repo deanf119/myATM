@@ -31,9 +31,27 @@ public class user {
 		//create empty list of accounts.
 		this.accounts = new ArrayList<account>();
 		
-		System.out.printf("New user %s, %s with ID %s created.\n", lastName, firstName, this.userId);
-		
-		
+		System.out.printf("New user %s, %s with ID %s created.\n", lastName, firstName, this.userId);	
 		
 	};
+	
+	public void addAccount(account anAccount) {
+		this.accounts.add(anAccount);
+	}
+	
+	public String getUserId() {
+		return this.userId;
+	}
+	
+	public boolean validatePin(String aPin) {
+		try {
+			MessageDigest md = MessageDigest.getInstance("MD5");
+			return MessageDigest.isEqual(md.digest(aPin.getBytes()), this.userPinHash);
+		} catch (NoSuchAlgorithmException e) {
+			System.err.println("error, caught NoSuchAlgorithmException");
+			e.printStackTrace();
+			System.exit(1);
+		}
+		return false;
+	}
 }
