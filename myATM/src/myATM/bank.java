@@ -8,6 +8,12 @@ public class bank {
 	private ArrayList<user> users;
 	private ArrayList<account> accounts;
 	
+	public bank(String name) {
+		this.name = name;
+		this.users = new ArrayList<user>();
+		this.accounts = new ArrayList<account>();
+	}
+	
 	public String getNewUserId() {
 		String userId;
 		Random idGenerator = new Random();
@@ -78,6 +84,10 @@ public class bank {
 		}
 		return null;
 
+	}
+	
+	public String getName() {
+		return this.name;
 	}
 	
 	

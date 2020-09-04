@@ -22,5 +22,9 @@ public class transaction {
 		this.timestamp = new Date();
 		this.memo = memo;
 	}
+	
+	public double getAmount() {
+		return this.amount;
+	}
 
 }

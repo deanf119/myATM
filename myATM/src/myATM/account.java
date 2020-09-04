@@ -21,4 +21,24 @@ public class account {
 	public String getAccountId() {
 		return this.accountId;
 	}
+	
+	public String getSummaryLine() {
+		double balance = this.getBalance();
+		
+		//format summary line
+		if(balance >=0 ) {
+			return String.format("%s : $%.02f : %s", this.accountId, balance, this.name);
+		} else {
+			return String.format("%s : $(%.02f) : %s", this.accountId, balance, this.name);
+		}
+	}
+	
+	public double getBalance() {
+		
+		double balance = 0;
+		for (transaction t : this.transactions) {
+			balance += t.getAmount();
+		}
+		return balance;
+	}
 }
