@@ -41,4 +41,17 @@ public class account {
 		}
 		return balance;
 	}
+	
+	public void printTransferHistory() {
+		System.out.printf("\nTransaction History for account %s\n", this.accountId);
+		for(int i = this.transactions.size()-1; i >= 0; i--) {
+			System.out.printf(this.transactions.get(i).getSummaryLine());
+		}
+		System.out.println();
+	}
+	
+	public void addTransaction(double amount, String memo) {
+		transaction newTransaction = new transaction(amount, memo, this);
+		this.transactions.add(newTransaction);
+	}
 }
